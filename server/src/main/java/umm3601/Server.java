@@ -11,12 +11,14 @@ import com.mongodb.client.MongoDatabase;
 import io.javalin.Javalin;
 
 import umm3601.user.UserController;
+import umm3601.todo.TodoController;
 
 public class Server {
 
   static String appName = "UMM CSci 3601 Lab 4";
 
   public static final String USER_DATA_FILE = "/users.json";
+  public static final String TODO_DATA_FILE = "/todos.json";
   private static MongoDatabase database;
 
   public static void main(String[] args) {
@@ -38,6 +40,7 @@ public class Server {
 
     // Initialize dependencies
     UserController userController = new UserController(database);
+    TodoController todoController = new TodoController(database);
     //UserRequestHandler userRequestHandler = new UserRequestHandler(userController);
 
     Javalin server = Javalin.create().start(4567);
@@ -58,6 +61,17 @@ public class Server {
 
     // Add new user
     server.post("api/users/new", userController::addNewUser);
+
+    // Get specific todo
+    server.get("api/todos/:id", todoController::getTodo);
+
+    server.delete("api/todos/:id", todoController::deleteTodo);
+
+    // List todos, filtered using query parameters
+    server.get("api/todos", todoController::getTodos);
+
+    // Add new todo
+    server.post("api/todos/new", todoController::addNewTodo);
 
 
 
