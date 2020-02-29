@@ -25,7 +25,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { UserListComponent } from './users/user-list.component';
-import { TodoListComponent } from './todos/todo-list-component';
+import { TodoListComponent } from './todos/todo-list.component';
 import { HomeComponent } from './home/home.component';
 import { UserService } from './users/user.service';
 import { TodoService } from './todos/todo.service';
