@@ -12,9 +12,12 @@ export class TodoService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getTodos(filters?: { status?: StatusType, body?: string, category?: string }): Observable<Todo[]> {
+  getTodos(filters?: { status?: StatusType, body?: string, category?: string, owner?: string }): Observable<Todo[]> {
     let httpParams: HttpParams = new HttpParams();
     if (filters) {
+      if (filters.owner) {
+        httpParams = httpParams.set('owner', filters.owner);
+      }
       if (filters.status) {
         httpParams = httpParams.set('status', filters.status.toString());
       }

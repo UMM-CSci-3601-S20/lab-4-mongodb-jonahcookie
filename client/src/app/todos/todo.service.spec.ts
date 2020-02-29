@@ -24,7 +24,7 @@ describe('Todo service: ', () => {
     {
       _id: 'fry_id',
       owner: 'Fry',
-      status: false,
+      status: true,
       body: 'Ullamco irure laborum magna dolor non. Anim occaecat adipisicing cillum eu magna in.',
       category: 'homework'
     }
@@ -89,7 +89,7 @@ describe('Todo service: ', () => {
     expect(req.request.method).toEqual('GET');
 
     // Check that the role parameter was 'category'
-    expect(req.request.params.get('software design')).toEqual('category');
+    expect(req.request.params.get('category')).toEqual('software design');
 
     req.flush(testTodos);
   });
