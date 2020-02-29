@@ -1,71 +1,19 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Todo, StatusType } from './todo';
-import { TodoService } from './todo.service';
-import { Subscription } from 'rxjs';
+import { Component, OnInit, Input } from '@angular/core';
+import { Todo } from './todo';
 
 @Component({
-  selector: 'app-todo-list-component',
-  templateUrl: 'todo-list.component.html',
-  styleUrls: ['./todo-list.component.scss'],
-  providers: []
+  selector: 'app-todo-card',
+  templateUrl: './todo-card.component.html',
+  styleUrls: ['./todo-card.component.scss']
 })
+export class TodoCardComponent implements OnInit {
 
-export class TodoListComponent implements OnInit, OnDestroy  {
-  // These are public so that tests can reference them (.spec.ts)
-  public serverFilteredTodos: Todo[];
-  public filteredTodos: Todo[];
+  @Input() todo: Todo;
+  @Input() simple ? = false;
 
-  public todoOwner: string;
-  public todoStatus: StatusType;
-  public todoBody: string;
-  public todoCategory: string;
-  public viewType: 'card' | 'list' = 'card';
-  getTodosSub: Subscription;
+  constructor() { }
 
-
-  // Inject the TodoService into this component.
-  // That's what happens in the following constructor.
-  //
-  // We can call upon the service for interacting
-  // with the server.
-
-  constructor(private TodoService: TodoService) {
-
-  }
-
-  getTodosFromServer(): void {
-    this.unsub();
-    this.getTodosSub = this.TodoService.getTodos({
-      category: this.todoCategory,
-      body: this.todoBody
-    }).subscribe(returnedTodos => {
-      this.serverFilteredTodos = returnedTodos;
-      this.updateFilter();
-    }, err => {
-      console.log(err);
-    });
-  }
-
-  public updateFilter(): void {
-    this.filteredTodos = this.TodoService.filterTodos(
-      this.serverFilteredTodos, { owner: this.todoOwner, category: this.todoCategory });
-  }
-
-  /**
-   * Starts an asynchronous operation to update the todos list
-   *
-   */
   ngOnInit(): void {
-    this.getTodosFromServer();
   }
 
-  ngOnDestroy(): void {
-    this.unsub();
-  }
-
-  unsub(): void {
-    if (this.getTodosSub) {
-      this.getTodosSub.unsubscribe();
-    }
-  }
 }
