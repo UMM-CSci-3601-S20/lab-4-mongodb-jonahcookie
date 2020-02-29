@@ -96,7 +96,7 @@ describe('Todo service: ', () => {
 
   it('getTodos() calls api/todos with filter parameter \'status\'', () => {
 
-    todoService.getTodos({ status: false }).subscribe(
+    todoService.getTodos({ status: 'incomplete' }).subscribe(
       todos => expect(todos).toBe(testTodos)
     );
 
@@ -108,15 +108,15 @@ describe('Todo service: ', () => {
     // Check that the request made to that URL was a GET request.
     expect(req.request.method).toEqual('GET');
 
-    // Check that the role parameter was 'admin'
-    expect(req.request.params.get('status')).toEqual('false');
+    // Check that the role parameters are correct
+    expect(req.request.params.get('status')).toEqual('incomplete');
 
     req.flush(testTodos);
   });
 
   it('getTodos() calls api/todos with multiple filter parameters', () => {
 
-   todoService.getTodos({ body: 'Ipsum esse est ullamco magna tempor anim laborum non officia deserunt veniam commodo. Aute minim incididunt ex commodo.', category: 'video games', status: false}).subscribe(
+   todoService.getTodos({ body: 'Ipsum esse est ullamco magna tempor anim laborum non officia deserunt veniam commodo. Aute minim incididunt ex commodo.', category: 'video games', status: 'incomplete'}).subscribe(
      todos => expect(todos).toBe(testTodos)
    );
 
