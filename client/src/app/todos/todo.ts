@@ -6,4 +6,4 @@ export interface Todo {
   status: StatusType;
 }
 
-export type StatusType = true|false ;
+export type StatusType = "incomplete" | "complete" ;
