@@ -25,16 +25,20 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { UserListComponent } from './users/user-list.component';
+import { TodoListComponent } from './todos/todo-list-component';
 import { HomeComponent } from './home/home.component';
 import { UserService } from './users/user.service';
+import { TodoService } from './todos/todo.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
-import { TodoCardComponent } from'./todos/todo-card.component';
-import { TodoProfileComponent } from'./todos/todo-profile.component';
-import { AddTodoComponent } from'./todos/add-todo.component';
 import { UserCardComponent } from './users/user-card.component';
+import { TodoCardComponent } from './todos/todo-card.component';
 import { UserProfileComponent } from './users/user-profile.component';
+import { TodoProfileComponent } from'./todos/todo-profile.component';
 import { AddUserComponent } from './users/add-user.component';
+import { AddTodoComponent } from'./todos/add-todo.component';
+
+
 
 const MATERIAL_MODULES: any[] = [
   MatListModule,
@@ -59,14 +63,14 @@ const MATERIAL_MODULES: any[] = [
   declarations: [
     AppComponent,
     HomeComponent,
-    TodoListComponent,
     UserListComponent,
-    TodoCardComponent,
+    TodoListComponent,
     UserCardComponent,
-    TodoProfileComponent,
+    TodoCardComponent,
     UserProfileComponent,
-    AddTodoComponent,
+    TodoProfileComponent,
     AddUserComponent,
+    AddTodoComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +81,7 @@ const MATERIAL_MODULES: any[] = [
     FlexLayoutModule,
     HttpClientModule,
     MATERIAL_MODULES,
-    LayoutModule,
+    LayoutModule
   ],
   providers: [
     UserService,

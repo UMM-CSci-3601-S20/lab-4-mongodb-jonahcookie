@@ -156,7 +156,7 @@ describe('AddTodoComponent', () => {
     });
 
     it('should allow "true"', () => {
-      statusControl.setValue('true');
+      statusControl.setValue(true);
       expect(statusControl.valid).toBeTruthy();
     });
 
