@@ -63,9 +63,8 @@ export class TodoService {
       filteredTodos = filteredTodos.filter(todo => {
         return todo.owner.toLowerCase().indexOf(filters.body) !== -1;
       });
-
-    return filteredTodos;
   }
+  return filteredTodos;
 }
 
   addTodo(newTodo: Todo): Observable<string> {
