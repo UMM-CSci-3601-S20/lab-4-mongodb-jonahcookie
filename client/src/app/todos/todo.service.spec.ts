@@ -24,7 +24,7 @@ describe('Todo service: ', () => {
     {
       _id: 'fry_id',
       owner: 'Fry',
-      status: false,
+      status: true,
       body: 'Ullamco irure laborum magna dolor non. Anim occaecat adipisicing cillum eu magna in.',
       category: 'homework'
     }
