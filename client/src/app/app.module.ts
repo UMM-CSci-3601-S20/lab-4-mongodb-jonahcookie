@@ -29,6 +29,9 @@ import { HomeComponent } from './home/home.component';
 import { UserService } from './users/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
+import { TodoCardComponent } from'./todos/todo-card.component';
+import { TodoProfileComponent } from'./todos/todo-profile.component';
+import { AddTodoComponent } from'./todos/add-todo.component';
 import { UserCardComponent } from './users/user-card.component';
 import { UserProfileComponent } from './users/user-profile.component';
 import { AddUserComponent } from './users/add-user.component';
@@ -56,9 +59,13 @@ const MATERIAL_MODULES: any[] = [
   declarations: [
     AppComponent,
     HomeComponent,
+    TodoListComponent,
     UserListComponent,
+    TodoCardComponent,
     UserCardComponent,
+    TodoProfileComponent,
     UserProfileComponent,
+    AddTodoComponent,
     AddUserComponent,
   ],
   imports: [
@@ -73,7 +80,8 @@ const MATERIAL_MODULES: any[] = [
     LayoutModule,
   ],
   providers: [
-    UserService
+    UserService,
+    TodoService
   ],
   bootstrap: [AppComponent]
 })
