@@ -97,6 +97,11 @@ public class TodoController {
       filters.add(eq("body", ctx.queryParam("body")));
     }
 
+    if (ctx.queryParamMap().containsKey("status")) {
+      boolean targetStatus = ctx.queryParam("status", Boolean.class).get();
+      filters.add(eq("status", targetStatus));
+    }
+
     String sortBy = ctx.queryParam("sortby", "owner"); //Sort by sort query param, default is owner
     String sortOrder = ctx.queryParam("sortorder", "asc");
 

@@ -16,7 +16,7 @@ export class TodoService {
     let httpParams: HttpParams = new HttpParams();
     if (filters) {
       if (filters.status) {
-        httpParams = httpParams.set('status', filters.status.toString());
+        httpParams = httpParams.set('status', filters.status);
       }
       if (filters.body) {
         httpParams = httpParams.set('body', filters.body);
@@ -34,7 +34,7 @@ export class TodoService {
     return this.httpClient.get<Todo>(this.todoUrl + '/' + id);
   }
 
-  filterTodos(todos: Todo[], filters: { owner?: string, category?: string, body?: string, status?: StatusType }): Todo[] {
+  filterTodos(todos: Todo[], filters: { owner?: string, category?: string, body?: string}): Todo[] {
 
     let filteredTodos = todos;
 
