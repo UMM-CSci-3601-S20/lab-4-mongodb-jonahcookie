@@ -101,7 +101,7 @@ describe('AddTodoComponent', () => {
       expect(ownerControl.hasError('maxlength')).toBeTruthy();
     });
 
-    it('should not allow a owner to contain a symbol', () => {
+    it('should not allow an owner to contain a symbol', () => {
       ownerControl.setValue('bad@email.com');
       expect(ownerControl.valid).toBeFalsy();
       expect(ownerControl.hasError('pattern')).toBeTruthy();
@@ -149,12 +149,14 @@ describe('AddTodoComponent', () => {
       statusControl = addTodoForm.controls[`status`];
     });
 
+    //can't leave the status field blank
     it('should not allow empty values', () => {
       statusControl.setValue('');
       expect(statusControl.valid).toBeFalsy();
       expect(statusControl.hasError('required')).toBeTruthy();
     });
 
+    //if they enter true or false, it should work
     it('should allow "true"', () => {
       statusControl.setValue(true);
       expect(statusControl.valid).toBeTruthy();

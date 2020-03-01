@@ -73,7 +73,7 @@ export class AddTodoComponent implements OnInit {
       // without any particular validation.
       body: new FormControl(),
 
-      status: new FormControl('viewer', Validators.compose([
+      status: new FormControl('true', Validators.compose([
         Validators.required,
         Validators.pattern('^(true|false)$'),
       ])),
