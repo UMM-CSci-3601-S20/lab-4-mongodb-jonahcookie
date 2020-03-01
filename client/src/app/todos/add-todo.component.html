@@ -26,7 +26,7 @@ is potentially helpful and contributed to the shaping of this example -->
             <input matInput #input id="categoryField" placeholder="Category"
                   formControlName="category" required>
             <mat-error *ngFor="let validation of add_todo_validation_messages.category">
-              <mat-error class="error-message" id="age-error"
+              <mat-error class="error-message" id="category-error"
                         *ngIf="addTodoForm.get('category').hasError(validation.type) && (addTodoForm.get('category').dirty || addTodoForm.get('category').touched)">
                 {{validation.message}}
               </mat-error>
@@ -47,7 +47,7 @@ is potentially helpful and contributed to the shaping of this example -->
 
         </mat-card-content>
         <mat-card-actions align="end">
-          <button mat-button id="confirmAddTodoButton" type="button" color="primary"
+          <button mat-stroked-button id="confirmAddTodoButton" type="button" color="primary"
                   [disabled]="!addTodoForm.valid" type="submit">
                   ADD TODO
           </button>
