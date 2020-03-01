@@ -96,7 +96,7 @@ describe('Todo service: ', () => {
 
   it('getTodos() calls api/todos with filter parameter \'status\'', () => {
 
-    todoService.getTodos({ status: 'incomplete' }).subscribe(
+    todoService.getTodos({ status: 'complete' }).subscribe(
       todos => expect(todos).toBe(testTodos)
     );
 
@@ -109,14 +109,14 @@ describe('Todo service: ', () => {
     expect(req.request.method).toEqual('GET');
 
     // Check that the status parameter was 'incomplete'
-    expect(req.request.params.get('status')).toEqual('incomplete');
+    expect(req.request.params.get('status')).toEqual('complete');
 
     req.flush(testTodos);
   });
 
   it('getTodos() calls api/todos with multiple filter parameters', () => {
 
-   todoService.getTodos({ body: 'Ipsum esse est ullamco magna tempor anim laborum non officia deserunt veniam commodo. Aute minim incididunt ex commodo.', category: 'video games', status: 'incomplete'}).subscribe(
+   todoService.getTodos({ category: 'video games', status: 'incomplete'}).subscribe(
      todos => expect(todos).toBe(testTodos)
    );
 
