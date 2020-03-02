@@ -37,7 +37,9 @@ export class AddTodoComponent implements OnInit {
     status: [
       { type: 'required', message: 'Status is required' },
       { type: 'pattern', message: 'Status must be True or False' },
-    ]
+    ],
+
+    body: []
   };
 
   createForms() {
