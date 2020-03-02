@@ -60,7 +60,7 @@ describe('TodoProfileComponent', () => {
     expect(component.id).toEqual(expectedTodo._id);
 
     // Changing the paramMap should update the displayed todo profile.
-    expectedTodo = MockTodoService.testTodos[1];
+    expectedTodo = MockTodoService.testTodos[0];
     activatedRoute.setParamMap({ id: expectedTodo._id });
 
     expect(component.id).toEqual(expectedTodo._id);

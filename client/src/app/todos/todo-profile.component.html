@@ -1,5 +1,9 @@
 <div fxLayout="row">
   <div fxFlex fxFlex.gt-sm="80" fxFlexOffset.gt-sm="10">
-    <app-todo-card [todo]="this.todo"></app-todo-card>
+    <mat-card-title class="todo-card-owner">{{ this.todo.owner }}</mat-card-title>
+    <mat-card-subtitle class="todo-card-id">{{ this.todo._id }}</mat-card-subtitle>
+    <mat-card-subtitle class="todo-card-category">{{ this.todo.category }}</mat-card-subtitle>
+    <mat-card-subtitle class="todo-card-status">{{ this.todo.status }}</mat-card-subtitle>
+    <p matLine class="todo-list-body"> {{todo.body}} </p>
   </div>
 </div>
