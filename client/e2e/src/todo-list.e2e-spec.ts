@@ -55,14 +55,14 @@ describe('Todo list', () => {
   });
 
   it('Should select a status, switch the view, and check that it returned correct elements', async () => {
-    await page.selectMatSelectValue('todo-status-select', 'incomplete');
+    await page.selectMatSelectValue('todo-status-select', 'true');
     await page.changeView('list');
 
     expect(page.getTodoListItems().count()).toBeGreaterThan(0);
 
     // All of the todo list items should have the status we are looking for
     page.getTodoListItems().each(e => {
-      expect(e.element(by.className('todo-list-status')).getText()).toEqual('incomplete');
+      expect(e.element(by.className('todo-list-status')).getText()).toEqual('true');
     });
 
 
