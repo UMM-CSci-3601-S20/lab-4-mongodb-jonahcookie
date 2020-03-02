@@ -37,7 +37,6 @@ export class TodoListComponent implements OnInit, OnDestroy  {
     this.unsub();
     this.getTodosSub = this.todoService.getTodos({
       status: this.todoStatus,
-      body: this.todoBody,
       category: this.todoCategory,
     }).subscribe(returnedTodos => {
       this.serverFilteredTodos = returnedTodos;
