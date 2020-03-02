@@ -38,7 +38,7 @@
           <mat-form-field class="input-field">
             <mat-label>Status</mat-label>
             <mat-select (selectionChange)="getTodosFromServer()" [(ngModel)]="todoStatus" id="todo-status-select">
-              <mat-option>--</mat-option>
+              <mat-option value>--</mat-option>
               <mat-option value="false">Incomplete</mat-option>
               <mat-option value="true">Complete</mat-option>
             </mat-select>
