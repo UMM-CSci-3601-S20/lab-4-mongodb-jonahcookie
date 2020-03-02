@@ -23,7 +23,7 @@ describe('Todo list', () => {
     });
   });
 
-  it('Should type something in the company filter and check that it returned correct elements', async () => {
+  it('Should type something in the category filter and check that it returned correct elements', async () => {
     await page.typeInput('todo-category-input', 'software design');
 
     // All of the todo cards should have the company we are filtering by

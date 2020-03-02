@@ -2,9 +2,9 @@ import {browser, by, element, Key, ElementFinder} from 'protractor';
 
 export interface TestTodo {
   owner: string;
-  category: 'video games' | 'homework' | 'software design' | 'groceries' ;
+  category: string;
   body: string;
-  status: boolean;
+  status: string;
 }
 
 export class AddTodoPage {
@@ -40,13 +40,10 @@ export class AddTodoPage {
 
   async addTodo(newTodo: TestTodo) {
     await this.typeInput('ownerField', newTodo.owner);
-    await this.typeInput('statusField', newTodo.status.toString());
-    if (newTodo.category) {
-      await this.typeInput('categoryField', newTodo.category);
-    }
-    if (newTodo.body) {
-      await this.typeInput('bodyField', newTodo.body);
-    }
+    await this.typeInput('bodyField', newTodo.body);
+    await this.typeInput('statusField',newTodo.status);
+    await this.typeInput('categoryField', newTodo.category);
+
     return this.clickAddTodo();
 
   }
