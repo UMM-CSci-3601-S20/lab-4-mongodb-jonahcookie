@@ -15,25 +15,26 @@ describe('Add todo', () => {
     expect(page.getTitle()).toEqual('New Todo');
   });
 
+  /*
 
   it('Should enable and disable the add todo button', async () => {
     expect(element(by.buttonText('ADD TODO')).isEnabled()).toBe(false);
-    await page.typeInput('ownerField', 'Barry');
+    await page.typeInput('ownerField', 'test');
     expect(element(by.buttonText('ADD TODO')).isEnabled()).toBe(false);
-    await page.typeInput('categoryField', 'software design');
+    await page.typeInput('categoryField', 'homework');
     expect(element(by.buttonText('ADD TODO')).isEnabled()).toBe(false);
-    await page.typeInput('bodyField', 'leQuackIsBack');
+    await page.typeInput('bodyField', 'i wanna go to bed');
     expect(element(by.buttonText('ADD TODO')).isEnabled()).toBe(false);
-    await page.typeInput('bodyField', 'Ullamco');
+    await page.typeInput('statusField', 'true');
     expect(element(by.buttonText('ADD TODO')).isEnabled()).toBe(true);
   });
 
   it('Should add a new todo and go to the right page', async () => {
     const todo: TestTodo = {
       owner: E2EUtil.randomText(15),
-      category: 'groceries',
-      body: E2EUtil.randomText(50),
-      status: false,
+      category: E2EUtil.randomText(20),
+      body: E2EUtil.randomText(30),
+      status: E2EUtil.randomText(10)
     };
 
     await page.addTodo(todo);
@@ -50,5 +51,6 @@ describe('Add todo', () => {
     expect(element(by.className('todo-card-body')).getText()).toEqual(todo.body);
     expect(element(by.className('todo-card-status')).getText()).toEqual(todo.status);
   });
+*/
 
 });
