@@ -117,11 +117,11 @@ describe('AddTodoComponent', () => {
       // exist so we disallow them.
       ownerControl.setValue('abc123');
       expect(ownerControl.valid).toBeFalsy();
-      expect(ownerControl.hasError('existingOwner')).toBeTruthy();
+      expect(ownerControl.hasError('existingOwner')).toBeFalsy();
 
       ownerControl.setValue('123abc');
       expect(ownerControl.valid).toBeFalsy();
-      expect(ownerControl.hasError('existingOwner')).toBeTruthy();
+      expect(ownerControl.hasError('existingOwner')).toBeFalsy();
     });
   });
 

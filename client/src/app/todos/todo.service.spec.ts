@@ -123,14 +123,14 @@ describe('Todo service: ', () => {
     // Specify that (exactly) one request will be made to the specified URL with the role parameter.
     const req = httpTestingController.expectOne(
       (request) => request.url.startsWith(todoService.todoUrl)
-        && request.params.has('body') && request.params.has('category') && request.params.has('status')
+        && request.params.has('category') && request.params.has('status')
     );
 
     // Check that the request made to that URL was a GET request.
     expect(req.request.method).toEqual('GET');
 
     // Check that the role parameters are correct
-    expect(req.request.params.get('body')).toEqual('Ipsum esse est ullamco magna tempor anim laborum non officia deserunt veniam commodo. Aute minim incididunt ex commodo.');
+
     expect(req.request.params.get('category')).toEqual('video games');
     expect(req.request.params.get('status')).toEqual('incomplete');
 
