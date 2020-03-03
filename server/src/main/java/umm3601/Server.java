@@ -77,7 +77,7 @@ public class Server {
 
     server.exception(Exception.class, (e, ctx) -> {
       ctx.status(500);
-      ctx.json(e); // you probably want to remove this in production
+      //ctx.json(e); // you probably want to remove this in production
     });
   }
 }

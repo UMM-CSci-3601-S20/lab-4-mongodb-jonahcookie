@@ -30,7 +30,6 @@ import io.javalin.http.NotFoundResponse;
  */
 public class TodoController {
 
-  static String emailRegex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
   static Boolean quack = true;
   static Boolean moo = false;
 

@@ -85,21 +85,21 @@ public class TodoControllerSpec {
     List<Document> testTodos = new ArrayList<>();
     testTodos.add(Document.parse("{\n" +
     "                    owner: \"Blanche\",\n" +
-    "                    category: \"software design,\n" +
+    "                    category: \"software design\",\n" +
+    "                    status: false,\n" +
     "                    body: \"In sunt ex non tempor cillum commodo amet incididunt anim qui commodo quis. Cillum non labore ex sint esse.\",\n" +
-    "                    status: \false\",\n" +
     "                }"));
     testTodos.add(Document.parse("{\n" +
     "                    owner: \"Fry\",\n" +
-    "                    category: \"video games,\n" +
+    "                    category: \"video games\",\n" +
+    "                    status: false,\n" +
     "                    body: \"Ipsum esse est ullamco magna tempor anim laborum non officia deserunt veniam commodo. Aute minim incididunt ex commodo.\",\n" +
-    "                    status: \false\",\n" +
     "                    }"));
     testTodos.add(Document.parse("{\n" +
     "                    owner: \"Fry\",\n" +
-    "                    category: \"homework,\n" +
+    "                    category: \"homework\",\n" +
+    "                    status: true,\n" +
     "                    body: \"Ullamco irure laborum magna dolor non. Anim occaecat adipisicing cillum eu magna in.\",\n" +
-    "                    status: \true\",\n" +
     "                    }"));
 
     samsId = new ObjectId();
@@ -188,7 +188,7 @@ public class TodoControllerSpec {
   @Test
   public void GetTodosByCategoryAndOwner() throws IOException {
 
-     mockReq.setQueryString("category=homewrok&owner=Fry");
+     mockReq.setQueryString("category=homework&owner=Fry");
      Context ctx = ContextUtil.init(mockReq, mockRes, "api/todos");
      todoController.getTodos(ctx);
 
